@@ -1,0 +1,1 @@
+def wall_door(start_index, stop_index, time_stamp, RSSI):
