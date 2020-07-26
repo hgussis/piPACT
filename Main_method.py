@@ -5,7 +5,7 @@ import Pockets
 import No_Obstruction
 import WallDoor
 import Combo
-
+import statistics
 #barrier list contains the time stamps and type of interaction the
 #devices had (ex. ([0,3,"no obs]) means that from minutes 0-3,
 #there was no obstruction
