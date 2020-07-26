@@ -11,7 +11,7 @@ import Combo
 #there was no obstruction
 """Valid obstruction types:
 """
-def pact(barrier_list, file_scan):
+def pact(barrier_list, file_scan, file_location="Data"):
 
     #results
     possible_results=("The devices WERE likely within 6 feet for more than fifteen minutes",
@@ -20,7 +20,7 @@ def pact(barrier_list, file_scan):
 
     #opens up a file and makes a list of time stamps and corresponding RSSI values
     root= Path(".")
-    path_to_data = root / "Data" / file_scan
+    path_to_data = root / file_location / file_scan
     rssi= []
     time_stamp= []
     #obstruction_dict= {"none":}
