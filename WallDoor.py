@@ -2,7 +2,7 @@ import statistics as stats
 from datetime import datetime
 from datetime import timedelta
 
-def wall_door(start_index, stop_index, time_stamp, RSSI):
+def wall_door(start_index, stop_index, time_stamp, RSSI, obstruction_type):
     stdev =stats.stdev(RSSI[start_index:stop_index])
     average = stats.mean(RSSI[start_index:stop_index])
 
@@ -14,6 +14,15 @@ def wall_door(start_index, stop_index, time_stamp, RSSI):
     total_seconds = tdelta.total_seconds
     mins_elapsed = total_seconds/60
 
+    if obstruction_type == "wall":
+        stdev = 0
+        average= 0
+    elif obstruction_type == "door":
+        stdev = 0
+    else:
+        raise NameError(
+            "{} does not have a specific function. Please review your inputs".format(obstruction_type))
+            #ensures that a user knows if there is an invalid input
     if stdev == 0 and average < 5:
         return mins_elapsed
     else:

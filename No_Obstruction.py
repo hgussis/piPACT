@@ -5,6 +5,7 @@ from datetime import timedelta
 def no_obs(start_index, stop_index, time_stamp, RSSI):
     stdev =stats.stdev(RSSI[start_index:stop_index])
     average = stats.mean(RSSI[start_index:stop_index])
+
     #find difference between two points in time
     s1 = time_stamp[start_index]
     s2 = time_stamp[stop_index]
