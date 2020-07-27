@@ -2,7 +2,7 @@ import statistics as stats
 from datetime import datetime
 from datetime import timedelta
 
-def no_obs(start_index, stop_index, time_stamp, RSSI):
+def human(start_index, stop_index, time_stamp, RSSI):
     stdev =stats.stdev(RSSI[start_index:stop_index])
     average = stats.mean(RSSI[start_index:stop_index])
     median= stats.median(RSSI[start_index:stop_index])
@@ -14,9 +14,9 @@ def no_obs(start_index, stop_index, time_stamp, RSSI):
     tdelta = datetime.strptime(s2,FMT) - datetime.strptime(s1,FMT)
 
     total_seconds = float(tdelta.total_seconds())
-    mins_elapsed = float(total_seconds / 60)
+    mins_elapsed = float(total_seconds // 60)
 
-    if median > -60 and average > -60.15:
+    if median >=-58 and average >= -58.41:
         return mins_elapsed
     else:
         return 0
